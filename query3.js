@@ -9,7 +9,10 @@ import { MongoClient } from 'mongodb';
 const agg = [
   {
     '$group': {
-      '_id': '$user.name', 
+      '_id': '$user.id', 
+      'name': {
+        '$first': '$user.name'
+      }, 
       'Tweets': {
         '$sum': 1
       }

@@ -9,15 +9,15 @@ import { MongoClient } from 'mongodb';
 const agg = [
   {
     '$group': {
-      '_id': '$user.name', 
-      'UserId': {
-        '$first': '$user.id'
+      '_id': '$user.id', 
+      'name': {
+        '$first': '$user.name'
       }
     }
   }, {
     '$project': {
       '_id': '$_id', 
-      'UserId': 1
+      'name': 1
     }
   }, {
     '$out': {
