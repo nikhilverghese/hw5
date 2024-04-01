@@ -9,7 +9,8 @@ import { MongoClient } from 'mongodb';
 const agg = [
   {
     '$match': {
-      'retweeted_status': null
+      'retweeted_status': null,
+      'in_reply_to_status_id': null
     }
   }
 ];
